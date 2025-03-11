@@ -1,0 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home.jsx";
+import BrowseBooks from "./pages/BrowseBooks.jsx";
+import BookDetails from "./pages/BookDetails.jsx";
+import AddBook from "./pages/AddBook.jsx";
+import NotFound from "./pages/NotFound.jsx";
+
+const App = () => {
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/books" element={<BrowseBooks />} />
+                <Route path="/books/:category" element={<BrowseBooks />} />
+                <Route path="/books/details/:id" element={<BookDetails />} />
+                <Route path="/add-book" element={<AddBook />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
+
+
+
