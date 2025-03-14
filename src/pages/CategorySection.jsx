@@ -1,25 +1,41 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const CategorySection = ({ categories, onCategorySelect, selectedCategory }) => {
   return (
-    <div className="mx-auto bg-white p-6 rounded-lg shadow-md mt-6 animate-fadeInUp">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">Book Categories</h2>
-      <div className="flex justify-center space-x-4">
+    <motion.div
+      className="mx-auto bg-[#1E293B] p-6 rounded-xl shadow-lg mt-6 text-white"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* ✅ Title */}
+      <h2 className="text-2xl font-bold text-center text-cyan-400">📚 Book Categories</h2>
+
+      {/* ✅ Category Buttons */}
+      <div className="flex justify-center flex-wrap gap-4 mt-4">
         {categories.map((cat, index) => (
-          <button
+          <motion.button
             key={index}
-            onClick={() => onCategorySelect(cat)} // ✅ Updates selected category
-            className={`px-4 py-2 rounded-lg transition duration-300 transform hover:scale-110 
-              ${selectedCategory === cat ? "bg-blue-700 text-white" : "bg-blue-500 text-white hover:bg-blue-700"}`}
+            onClick={() => onCategorySelect(cat)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={`px-5 py-2 rounded-full text-lg font-semibold transition-all duration-300 
+              shadow-md bg-opacity-20 backdrop-blur-md ${
+                selectedCategory === cat
+                  ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-cyan-500 hover:text-white"
+              }`}
           >
             {cat}
-          </button>
+          </motion.button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default CategorySection;
+
 
 
