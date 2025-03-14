@@ -16,7 +16,7 @@ const BookDetails = () => {
     }
 
     return (
-        <div className="bg-[#1E293B] min-h-screen flex items-center justify-center">
+        <div className="bg-[#1E293B] min-h-screen flex items-center justify-center mt-16">
             <motion.div 
                 className="max-w-5xl w-full bg-[#1E293B] text-white p-8 rounded-2xl shadow-lg"
                 initial={{ opacity: 0, y: 50 }} 
